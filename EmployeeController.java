@@ -16,7 +16,7 @@ public class EmployeeController {
 
     @GetMapping( "/add")
     public String getEmployee(@RequestParam String firstName,
-                              @RequestParam String lastName) throws NoPlaceForEmployee {
+                              @RequestParam String lastName) throws EmployeeArrayIndexOutOfBounds {
         Employee employee = new Employee(firstName, lastName);
        return employeeService.addEmployee(employee);
 
@@ -24,7 +24,7 @@ public class EmployeeController {
     }
     @GetMapping( "/remove")
     public String removeEmployee(@RequestParam String firstName,
-                              @RequestParam String lastName) throws NoPlaceForEmployee {
+                              @RequestParam String lastName) throws EmployeeArrayIndexOutOfBounds {
         Employee employee = new Employee(firstName, lastName);
         return employeeService.removeEmployee(employee);
 
@@ -33,7 +33,7 @@ public class EmployeeController {
 
     @GetMapping( "/find")
     public Employee findEmployee(@RequestParam String firstName,
-                              @RequestParam String lastName) throws NoEmployeeException {
+                              @RequestParam String lastName) throws EmployeeNotFoundException {
         Employee employee = new Employee(firstName, lastName);
         return employeeService.findEmployee(employee);
 
