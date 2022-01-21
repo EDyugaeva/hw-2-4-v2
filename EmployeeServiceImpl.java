@@ -41,6 +41,7 @@ public class EmployeeServiceImpl implements EmployeeService {
                 return employee;
             }
         }
+
             throw new EmployeeNotFoundException();
     }
 
